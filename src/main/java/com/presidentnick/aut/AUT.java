@@ -5,6 +5,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.presidentnick.aut.achievements.AUTAchievements;
 import com.presidentnick.aut.common.ContentRegistry;
 import com.presidentnick.aut.lib.AlmostUselessTab;
 import com.presidentnick.aut.lib.ModInfo;
@@ -26,7 +27,7 @@ public class AUT
     
     public static ContentRegistry content;
     
-    public AUT(){
+    public AUT() {
     	
     	logger.info("Hooray, we're doing something!");
     	
@@ -42,7 +43,7 @@ public class AUT
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-		
+		AUTAchievements.init();
     }
     
     @EventHandler
