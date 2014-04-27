@@ -1,11 +1,11 @@
 [
 {
-  "modid": "aut",
+  "modid": "AUT",
   "name": "Almost Useless Tools",
-  "description": "Almost Useless. Almost.",
+  "description": "Almost useless. Almost.",
   "version": "${version}",
   "mcversion": "${mcversion}",
-  "url": "",
+  "url": "https://github.com/crawfonw/AUTRedux",
   "updateUrl": "",
   "authors": ["crawfonw"],
   "credits": "Me!",

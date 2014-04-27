@@ -17,8 +17,8 @@ buildscript {
 
 apply plugin: 'forge'
 
-version = "0.1"
-group= "com.presidentnick.aut"
+version = "0.0.1-alpha"
+group = "com.presidentnick.aut"
 archivesBaseName = "AlmostUselessTools"
 
 minecraft {
