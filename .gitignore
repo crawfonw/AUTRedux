@@ -1,0 +1,16 @@
+.classpath
+
+.gradle
+
+bin
+
+build
+
+eclipse
+
+.settings/org.eclipse.jdt.core.prefs
+
+.project
+
+gradle
+gradlew

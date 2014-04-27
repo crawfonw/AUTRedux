@@ -1,0 +1,16 @@
+[
+{
+  "modid": "aut",
+  "name": "Almost Useless Tools",
+  "description": "Almost Useless. Almost.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authors": ["crawfonw"],
+  "credits": "Me!",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
