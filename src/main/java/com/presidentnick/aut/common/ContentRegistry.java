@@ -3,10 +3,12 @@ package com.presidentnick.aut.common;
 import java.util.HashMap;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.stats.Achievement;
 
 import com.presidentnick.aut.achievements.AUTAchievements;
 import com.presidentnick.aut.blocks.ShellSand;
+import com.presidentnick.aut.items.ItemRake;
 import com.presidentnick.aut.lib.AlmostUselessTab;
 import com.presidentnick.aut.lib.ModInfo;
 
@@ -18,6 +20,7 @@ public class ContentRegistry {
 	
 	public ContentRegistry() {
 		//1. Register items
+		this.registerItems();
 		//2. Register recipes
 		//3. Register blocks
 		this.registerBlocks();
@@ -30,7 +33,10 @@ public class ContentRegistry {
 	}
 	
 	public void registerItems() {
+		ContentRepository.sandRake = new ItemRake(ToolMaterial.IRON).setUnlocalizedName("sandRake");
+		ContentRepository.sandRake.setCreativeTab(AUTTab);
 		
+		GameRegistry.registerItem(ContentRepository.sandRake, "sandRake");
 	}
 	
 	public void registerBlocks() {
