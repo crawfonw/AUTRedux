@@ -9,6 +9,7 @@ import net.minecraft.stats.Achievement;
 import com.presidentnick.aut.achievements.AUTAchievements;
 import com.presidentnick.aut.blocks.ShellSand;
 import com.presidentnick.aut.items.ItemRake;
+import com.presidentnick.aut.items.Shell;
 import com.presidentnick.aut.lib.AlmostUselessTab;
 import com.presidentnick.aut.lib.ModInfo;
 
@@ -35,8 +36,11 @@ public class ContentRegistry {
 	public void registerItems() {
 		ContentRepository.sandRake = new ItemRake(ToolMaterial.IRON).setUnlocalizedName("sandRake");
 		ContentRepository.sandRake.setCreativeTab(AUTTab);
-		
 		GameRegistry.registerItem(ContentRepository.sandRake, "sandRake");
+		
+		ContentRepository.shells = new Shell().setUnlocalizedName("shell");
+		ContentRepository.shells.setCreativeTab(AUTTab);
+		GameRegistry.registerItem(ContentRepository.shells, "shell");
 	}
 	
 	public void registerBlocks() {

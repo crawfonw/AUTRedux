@@ -8,4 +8,6 @@ public class ContentRepository {
 	public static Block shellSand;
 	
 	public static Item sandRake;
+	
+	public static Item shells;
 }
