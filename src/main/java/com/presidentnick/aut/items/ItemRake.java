@@ -48,7 +48,7 @@ public class ItemRake extends ItemTool {
 					return true;
 				} else {
 					Random generator = new Random();
-					int meta = generator.nextInt(Shell.itemNames.length);
+					int meta = generator.nextInt(ItemShell.itemNames.length);
 					int total = generator.nextInt(5);
 					if (total > 0) {
 						EntityItem entityitem = new EntityItem(par3World, par2EntityPlayer.posX, par2EntityPlayer.posY - 1.0D, par2EntityPlayer.posZ, new ItemStack(ContentRepository.shells, total, meta));

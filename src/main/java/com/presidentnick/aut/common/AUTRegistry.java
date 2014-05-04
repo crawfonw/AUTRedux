@@ -8,29 +8,30 @@ import net.minecraft.stats.Achievement;
 
 import com.presidentnick.aut.achievements.AUTAchievements;
 import com.presidentnick.aut.blocks.ShellSand;
+import com.presidentnick.aut.items.ItemGem;
 import com.presidentnick.aut.items.ItemRake;
-import com.presidentnick.aut.items.Shell;
+import com.presidentnick.aut.items.ItemShell;
 import com.presidentnick.aut.lib.AlmostUselessTab;
 import com.presidentnick.aut.lib.ModInfo;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class ContentRegistry {
+public class AUTRegistry {
 	
 	public static CreativeTabs AUTTab;
 	
-	public ContentRegistry() {
-		//1. Register items
-		this.registerItems();
-		//2. Register recipes
-		//3. Register blocks
-		this.registerBlocks();
-		//4. Register block recipes
-		//5. Setup creative tabs
+	public AUTRegistry() {
 		this.addCreativeTabs();
-		//6. Add chest loot
-		//7. Add achievements
+		this.registerItems();
+		this.registerItemRecipes();
+		this.registerBlocks();
+		this.registerBlockRecipes();
+		this.addChestLoot();
 		this.addAchievements();
+	}
+	
+	public void addCreativeTabs() {
+		AUTRegistry.AUTTab = new AlmostUselessTab(CreativeTabs.getNextID(), ModInfo.NAME);
 	}
 	
 	public void registerItems() {
@@ -38,9 +39,17 @@ public class ContentRegistry {
 		ContentRepository.sandRake.setCreativeTab(AUTTab);
 		GameRegistry.registerItem(ContentRepository.sandRake, "sandRake");
 		
-		ContentRepository.shells = new Shell().setUnlocalizedName("shell");
+		ContentRepository.shells = new ItemShell().setUnlocalizedName("shell");
 		ContentRepository.shells.setCreativeTab(AUTTab);
 		GameRegistry.registerItem(ContentRepository.shells, "shell");
+		
+		ContentRepository.gems = new ItemGem().setUnlocalizedName("gem");
+		ContentRepository.gems.setCreativeTab(AUTTab);
+		GameRegistry.registerItem(ContentRepository.gems, "gem");
+	}
+	
+	public void registerItemRecipes() {
+		
 	}
 	
 	public void registerBlocks() {
@@ -50,8 +59,12 @@ public class ContentRegistry {
 		GameRegistry.registerBlock(ContentRepository.shellSand, "ShellSand");
 	}
 	
-	public void addCreativeTabs() {
-		ContentRegistry.AUTTab = new AlmostUselessTab(CreativeTabs.getNextID(), ModInfo.NAME);
+	public void registerBlockRecipes() {
+		
+	}
+	
+	public void addChestLoot() {
+		
 	}
 	
 	public void addAchievements() {

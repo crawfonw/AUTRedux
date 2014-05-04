@@ -10,4 +10,6 @@ public class ContentRepository {
 	public static Item sandRake;
 	
 	public static Item shells;
+	
+	public static Item gems;
 }

@@ -4,7 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.presidentnick.aut.achievements.AUTAchievements;
-import com.presidentnick.aut.common.ContentRegistry;
+import com.presidentnick.aut.common.AUTRegistry;
 import com.presidentnick.aut.lib.ModInfo;
 
 import cpw.mods.fml.common.Mod;
@@ -23,7 +23,7 @@ public class AUT
     @Instance("AUT")
     public static AUT instance;
     
-    public static ContentRegistry content;
+    public static AUTRegistry content;
     
     public AUT() {
     	
@@ -34,7 +34,7 @@ public class AUT
     @EventHandler
     public void preinit(FMLPreInitializationEvent event){
     	
-    	content = new ContentRegistry();
+    	content = new AUTRegistry();
     	
     }
     
