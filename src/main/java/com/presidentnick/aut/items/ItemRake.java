@@ -25,6 +25,9 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemRake extends ItemTool {
 
+	@SideOnly(Side.CLIENT)
+	public static IIcon blockIcon;
+	
 	private static final Set effectiveAgainst = Sets.newHashSet(new Block[] {});
 	
 	public ItemRake(float p_i45333_1_, ToolMaterial p_i45333_2_, Set p_i45333_3_) {
@@ -57,7 +60,6 @@ public class ItemRake extends ItemTool {
 			                entityitem.onCollideWithPlayer(par2EntityPlayer);
 						}
 					}
-
 					par1ItemStack.damageItem(1, par2EntityPlayer);
 					return true;
 				}
@@ -65,14 +67,11 @@ public class ItemRake extends ItemTool {
 		}
 		return false;
 	}
-	
-	@SideOnly(Side.CLIENT)
-	public static IIcon blockIcon;
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons (IIconRegister iconRegister) {
-		blockIcon = iconRegister.registerIcon(ModInfo.ID.toLowerCase() + ":" + "sandRake");
+		this.blockIcon = iconRegister.registerIcon(ModInfo.ID.toLowerCase() + ":" + "sandRake");
     }
 	
 	@Override

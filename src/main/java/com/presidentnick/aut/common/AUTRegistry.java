@@ -7,7 +7,9 @@ import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.stats.Achievement;
 
 import com.presidentnick.aut.achievements.AUTAchievements;
+import com.presidentnick.aut.blocks.BlockSinterer;
 import com.presidentnick.aut.blocks.ShellSand;
+import com.presidentnick.aut.blocks.TileSinterer;
 import com.presidentnick.aut.items.ItemGem;
 import com.presidentnick.aut.items.ItemRake;
 import com.presidentnick.aut.items.ItemShell;
@@ -36,15 +38,15 @@ public class AUTRegistry {
 	
 	public void registerItems() {
 		ContentRepository.sandRake = new ItemRake(ToolMaterial.IRON).setUnlocalizedName("sandRake");
-		ContentRepository.sandRake.setCreativeTab(AUTTab);
+		ContentRepository.sandRake.setCreativeTab(AUTRegistry.AUTTab);
 		GameRegistry.registerItem(ContentRepository.sandRake, "sandRake");
 		
 		ContentRepository.shells = new ItemShell().setUnlocalizedName("shell");
-		ContentRepository.shells.setCreativeTab(AUTTab);
+		ContentRepository.shells.setCreativeTab(AUTRegistry.AUTTab);
 		GameRegistry.registerItem(ContentRepository.shells, "shell");
 		
 		ContentRepository.gems = new ItemGem().setUnlocalizedName("gem");
-		ContentRepository.gems.setCreativeTab(AUTTab);
+		ContentRepository.gems.setCreativeTab(AUTRegistry.AUTTab);
 		GameRegistry.registerItem(ContentRepository.gems, "gem");
 	}
 	
@@ -54,9 +56,13 @@ public class AUTRegistry {
 	
 	public void registerBlocks() {
 		ContentRepository.shellSand = new ShellSand().setBlockName("ShellSand");
-		ContentRepository.shellSand.setCreativeTab(AUTTab);
-		
+		ContentRepository.shellSand.setCreativeTab(AUTRegistry.AUTTab);
 		GameRegistry.registerBlock(ContentRepository.shellSand, "ShellSand");
+		
+		GameRegistry.registerTileEntity(TileSinterer.class, "sinterer");
+		ContentRepository.sinterer = new BlockSinterer().setBlockName("sinterer");
+		ContentRepository.sinterer.setCreativeTab(AUTRegistry.AUTTab);
+		GameRegistry.registerBlock(ContentRepository.sinterer, "sinterer");
 	}
 	
 	public void registerBlockRecipes() {
