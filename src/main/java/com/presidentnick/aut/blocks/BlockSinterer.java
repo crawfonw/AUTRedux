@@ -21,10 +21,16 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockSinterer extends BlockContainer {
 
-	public BlockSinterer() {
+	private final boolean active;
+	
+	public BlockSinterer(boolean isActive) {
 		super(Material.iron);
 		this.setHardness(5F);
 		this.setResistance(10F);
+		this.active = isActive;
+		if (isActive) {
+			this.setLightLevel(0.9F);
+		}
 	}
 
 	@Override
@@ -40,6 +46,9 @@ public class BlockSinterer extends BlockContainer {
 
 	@SideOnly(Side.CLIENT)
 	public static IIcon defaultSideIcon;
+	
+	@SideOnly(Side.CLIENT)
+	public static IIcon activeIcon;
 
 	@Override
 	public void registerBlockIcons(IIconRegister iconRegister)
@@ -47,19 +56,20 @@ public class BlockSinterer extends BlockContainer {
 		topIcon = iconRegister.registerIcon(ModInfo.ID.toLowerCase() + ":" + "testTexture_top");
 		frontIcon = iconRegister.registerIcon(ModInfo.ID.toLowerCase() + ":" + "testTexture_front");
 		defaultSideIcon = iconRegister.registerIcon(ModInfo.ID.toLowerCase() + ":" + "testTexture_default_side");
+		activeIcon = iconRegister.registerIcon(ModInfo.ID.toLowerCase() + ":" + "testTexture_active");
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getIcon(int side, int meta) {
 		if (side == 3 && meta == 0) { // forces render of front side when this block is in inventory
-			return frontIcon;
+			return this.active ? activeIcon : frontIcon;
 		} else if (side == 0 || side == 1) {
 			return topIcon;
 		} else if (side != meta) {
 			return defaultSideIcon;
 		} else {
-			return frontIcon;
+			return this.active ? activeIcon : frontIcon;
 		}
 	}
 

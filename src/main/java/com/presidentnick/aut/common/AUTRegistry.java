@@ -8,7 +8,7 @@ import net.minecraft.stats.Achievement;
 
 import com.presidentnick.aut.achievements.AUTAchievements;
 import com.presidentnick.aut.blocks.BlockSinterer;
-import com.presidentnick.aut.blocks.ShellSand;
+import com.presidentnick.aut.blocks.BlockShellSand;
 import com.presidentnick.aut.blocks.TileSinterer;
 import com.presidentnick.aut.items.ItemGem;
 import com.presidentnick.aut.items.ItemRake;
@@ -57,14 +57,17 @@ public class AUTRegistry {
 	}
 	
 	public void registerBlocks() {
-		ContentRepository.shellSand = new ShellSand().setBlockName("ShellSand");
+		ContentRepository.shellSand = new BlockShellSand().setBlockName("shellSand");
 		ContentRepository.shellSand.setCreativeTab(AUTRegistry.AUTTab);
-		GameRegistry.registerBlock(ContentRepository.shellSand, "ShellSand");
+		GameRegistry.registerBlock(ContentRepository.shellSand, "shellSand");
 		
 		GameRegistry.registerTileEntity(TileSinterer.class, "sinterer");
-		ContentRepository.sinterer = new BlockSinterer().setBlockName("sinterer");
-		ContentRepository.sinterer.setCreativeTab(AUTRegistry.AUTTab);
-		GameRegistry.registerBlock(ContentRepository.sinterer, "sinterer");
+		
+		ContentRepository.sintererInactive = new BlockSinterer(false).setBlockName("sintererInactive");
+		ContentRepository.sintererInactive.setCreativeTab(AUTRegistry.AUTTab);
+		GameRegistry.registerBlock(ContentRepository.sintererInactive, "sintererInactive");
+		ContentRepository.sintererActive = new BlockSinterer(true).setBlockName("sintererActive");
+		GameRegistry.registerBlock(ContentRepository.sintererActive, "sintererActive");
 	}
 	
 	public void registerBlockRecipes() {

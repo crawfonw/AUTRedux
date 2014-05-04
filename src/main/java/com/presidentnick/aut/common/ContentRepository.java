@@ -7,7 +7,8 @@ import net.minecraft.tileentity.TileEntity;
 public class ContentRepository {
 
 	public static Block shellSand;
-	public static Block sinterer;
+	public static Block sintererInactive;
+	public static Block sintererActive;
 	
 	public static Item gems;
 	public static Item sandRake;

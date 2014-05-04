@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.util.FakePlayer;
 
 import com.google.common.collect.Sets;
-import com.presidentnick.aut.blocks.ShellSand;
+import com.presidentnick.aut.blocks.BlockShellSand;
 import com.presidentnick.aut.common.ContentRepository;
 import com.presidentnick.aut.lib.ModInfo;
 
@@ -42,7 +42,7 @@ public class ItemRake extends ItemTool {
 		if (!par2EntityPlayer.canPlayerEdit(par4, par5, par6, par7, par1ItemStack)) {
 			return false;
 		} else {
-			if (par3World.getBlock(par4, par5, par6) instanceof ShellSand) {
+			if (par3World.getBlock(par4, par5, par6) instanceof BlockShellSand) {
 				Block block = Blocks.sand;
 				par3World.playSoundEffect((double)((float)par4 + 0.5F), (double)((float)par5 + 0.5F), (double)((float)par6 + 0.5F), block.stepSound.getBreakSound(), (block.stepSound.getVolume() + 1.0F) / 2.0F, block.stepSound.getPitch() * 0.8F);
 				

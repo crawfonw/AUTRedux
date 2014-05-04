@@ -14,9 +14,9 @@ import com.presidentnick.aut.lib.ModInfo;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ShellSand extends BlockSand {
+public class BlockShellSand extends BlockSand {
 
-	public ShellSand(){
+	public BlockShellSand(){
 		super();
 		this.setStepSound(soundTypeSand);
 		this.setHardness(0.5F);
