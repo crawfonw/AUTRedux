@@ -3,14 +3,17 @@ package com.presidentnick.aut.blocks;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
+import net.minecraftforge.common.util.Constants;
 
 public class TileSinterer extends TileEntity implements IInventory {
 
 	private ItemStack[] inventory;
 	
 	public TileSinterer() {
-		inventory = new ItemStack[1];
+		inventory = new ItemStack[9];
 	}
 	
 	@Override
@@ -89,6 +92,41 @@ public class TileSinterer extends TileEntity implements IInventory {
 	@Override
 	public boolean isItemValidForSlot(int var1, ItemStack var2) {
 		return true;
+	}
+	
+	@Override
+	public void writeToNBT(NBTTagCompound compund) {
+		super.writeToNBT(compund);
+		
+		NBTTagList list = new NBTTagList();
+		for (int i = 0; i < getSizeInventory(); i++) {
+			ItemStack stack = getStackInSlot(i);
+			if (stack != null) {
+				NBTTagCompound item = new NBTTagCompound();
+				item.setByte("SlotSinterer", (byte)i);
+				stack.writeToNBT(item);
+				
+				list.appendTag(item);
+			}
+		}
+		
+		compund.setTag("ItemsSinterer", list);
+	}
+	
+	@Override
+	public void readFromNBT(NBTTagCompound compound) {
+	  super.readFromNBT(compound);
+
+	  NBTTagList list = compound.getTagList("ItemsSinterer", Constants.NBT.TAG_COMPOUND);
+
+	  for(int i = 0; i < list.tagCount(); i++) {
+	        NBTTagCompound item = list.getCompoundTagAt(i);
+	        int slot = item.getByte("SlotSinterer");
+
+	        if(slot >= 0 && slot < getSizeInventory()) {
+	          setInventorySlotContents(slot, ItemStack.loadItemStackFromNBT(item));
+	        }
+	  }
 	}
 	
 }
