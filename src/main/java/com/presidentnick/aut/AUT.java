@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.presidentnick.aut.achievements.AUTAchievements;
+import com.presidentnick.aut.client.GUIHandler;
 import com.presidentnick.aut.common.AUTRegistry;
 import com.presidentnick.aut.lib.ModInfo;
 
@@ -42,6 +43,7 @@ public class AUT
     public void init(FMLInitializationEvent event)
     {
 		AUTAchievements.init();
+		new GUIHandler();
     }
     
     @EventHandler

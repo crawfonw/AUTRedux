@@ -16,6 +16,7 @@ import com.presidentnick.aut.items.ItemShell;
 import com.presidentnick.aut.lib.AlmostUselessTab;
 import com.presidentnick.aut.lib.ModInfo;
 
+import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class AUTRegistry {
@@ -28,6 +29,7 @@ public class AUTRegistry {
 		this.registerItemRecipes();
 		this.registerBlocks();
 		this.registerBlockRecipes();
+		this.registerNames();
 		this.addChestLoot();
 		this.addAchievements();
 	}
@@ -66,6 +68,10 @@ public class AUTRegistry {
 	}
 	
 	public void registerBlockRecipes() {
+		
+	}
+	
+	public void registerNames() {
 		
 	}
 	
